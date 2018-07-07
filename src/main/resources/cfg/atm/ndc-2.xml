@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema id="2">
+	<field id="message-subclass" type="AFS" length="1" key="true" />
+	<field id="luno" type="AFS" length="9" />
+	<!--  <field id="status-descriptor"   type="AFS" length="1" />  -->
+</schema>
+

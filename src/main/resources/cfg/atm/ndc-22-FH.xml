@@ -1,0 +1,46 @@
+<!--For Hardware configuration data-->
+<schema id="22-FH">
+
+	<field id="g2" type="K" length="1">A</field>
+	<field id="config-id" desc="Configuration ID" type="A" length="4"/>
+ 	<field id="FS1"                type="KFS"   length="1" />
+	
+	<field id="product-class-id" type="K" length="1">B</field>
+ 	<field id="product-class" desc ="product class" type="A" length="2"/>
+ 	<field id="FS1" type="KFS"   length="1" />
+ 	
+ 	<field id="hardware-config-id" type="K" length="1">C</field>
+ 	
+ 	<field id="config-data-1" type="AGS" length="10" />
+
+	<field id="config-data-2" type="AGS" length="10" />
+	
+	<field id="config-data-3" type="AGS" length="10" />
+
+	<field id="config-data-4" type="AGS" length="10" />
+
+	<field id="config-data-5" type="AGS" length="10" />
+
+    <field id="config-data-6" type="AGS" length="10"/>
+
+	<field id="config-data-7" type="AGS" length="10" />
+
+	<field id="config-data-8" type="AGS" length="10" />
+
+	<field id="config-data-9" type="AGS" length="10" />
+
+	<field id="config-data-10" type="AGS" length="10" />
+
+	<field id="config-data-11" type="AGS" length="10"/>
+
+	<field id="config-data-12" type="AGS" length="10"/>
+
+	<field id="config-data-13" type="AGS" length="10" />
+
+	<field id="config-data-14" type="AGS" length="10" />
+
+	<field id="config-data-15" type="A" length="20" />
+
+	<field id="FS1" type="KFS" length="1" />
+	
+</schema>

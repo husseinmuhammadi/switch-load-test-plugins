@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema>
+ <!-- <field id="header" type="A"   length="4" /> -->
+  <field id="header1"       type="STX"   length="1"    />
+ <field id="message-class"               type="K"   length="1"    >4</field>
+ <field id="fs-1"                        type="KFS" length="1"    />
+ <field id="fs-2"                        type="KFS" length="1"    />
+ <field id="fs-3"                        type="KFS" length="1"    />
+ <field id="next-state-id"         type="A"   length="3"    />
+ <field id="fs-1"                        type="KFS" length="1"    />
+ <field id="type-1-notes-to-dispense" type="N" length="2" />
+ <field id="type-2-notes-to-dispense" type="N" length="2" />
+ <field id="type-3-notes-to-dispense" type="N" length="2" />
+ <field id="type-4-notes-to-dispense" type="N" length="2" />
+ <field id="fs-1"                        type="KFS" length="1"    />
+ <field id="serial-number"                        type="N" length="4"    />
+ <field id="function-id"                        type="A" length="1"    />
+ <field id="screen-number"                        type="A" length="3"    />
+ <field id="screen-data-field"                        type="A" length="500"    />
+ <field id="fs-1"                        type="KFS" length="1"    /> 
+ <field id="message-coordination-number" type="A" length="1"    />
+ <field id="card-return-retain-flag"                        type="A" length="1"    />
+ <field id="printer-flag"                        type="A" length="1"    />
+ <field id="printer-data"                        type="V" length="500"    />
+ <!-- since ver-2.0.9 added by chetan w.r.t Issue #8424 as on 23 Sept 2014 -->
+ <field id="fs-1"            type="KGS" length="1"    />
+ <field id="printer-flag-1"  type="A" length="1"    />
+ <field id="printer-data-1"  type="V" length="500"    />
+ <field id="header2"       type="ETX"   length="1"    />
+</schema>

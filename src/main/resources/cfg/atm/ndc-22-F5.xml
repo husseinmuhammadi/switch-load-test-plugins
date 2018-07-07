@@ -1,0 +1,5 @@
+<!--  Date/Time Information -->
+<schema id="22-F5">
+	<field id="tod-clock-status" type="A" length="1"/>
+	<field id="terminal-date-time" type="AFS" length="12"/>
+</schema>

@@ -1,0 +1,5 @@
+<!--For Send note definitions (BNA) data -->
+<schema id="22-FN"> 
+	<field id="g2" type="K" length="12" />
+	<field id="FS1" type="KFS" length="1" />
+</schema>

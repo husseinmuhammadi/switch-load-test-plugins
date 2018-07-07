@@ -1,0 +1,13 @@
+<!--  Supply Counters -->
+<schema id="22-F2">
+    <field id="g2" type="A" length="4"/><!-- g2 -transaction serial number -->
+	<field id="g3" type="A" length="7"/><!-- g3 -accumulated transaction count -->
+	<field id="g4" type="A" length="20"/><!--g4 -Notes in Cassette-->
+	<field id="g5" type="A" length="20"/><!--g5 -Notes in Rejected-->
+	<field id="g6" type="A" length="20"/><!--g6 -Notes in Dispensed-->
+	<field id="g7" type="A" length="20"/><!--g4 -Notes in Last Transaction Notes Dispensed-->
+	<field id="g8" type="A" length="5"/>
+	<field id="g9" type="A" length="5"/>
+	<field id="g11" type="AFS" length="5"/>
+    <field id="MAC-Data" type="A" length="8"/>
+</schema>

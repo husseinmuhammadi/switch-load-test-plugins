@@ -1,0 +1,48 @@
+<!--For Tamper data -->
+<schema id="22-FK">
+	<field id="g2" type="K" length="6" />
+	<field id="FS1" type="KFS" length="1" />
+	<field id="g3" type="K" length="8" />
+	
+	<!--
+	<field id="device-id-C" desc="System Disk" type="A" length="1">C</field> 
+	<field id="C-config-data" type="A" length="2"/>
+	<field id="GS1" type="KGS" length="1" />
+	-->
+		
+	<field id="device-id-D" desc="Magnetic Card Reader/Writer" type="A" length="1">D</field>
+	<field id="D-config-data" type="A" length="1" />
+	<field id="GS1" type="KGS" length="1" />
+
+	<!--
+	<field id="device-id-E" desc="Cash Handler" type="A" length="1">E</field> 
+	<field id="E-config-data" type="A" length="5"/>
+	<field id="GS1" type="KGS" length="1" />
+	-->
+
+	<field id="device-id-G" desc="Receipt Printer" type="A" length="1">G</field>
+	<field id="G-config-data" type="A" length="102" />
+	<field id="GS1" type="KGS" length="1" />
+
+	<field id="device-id-K" desc="Night Safe Depository" type="A" length="1">K</field>
+	<field id="K-config-data" type="A" length="4" />
+	<field id="GS1" type="KGS" length="1" />
+
+	<field id="device-id-P" desc="TI Bins (Alarms)" type="A" length="1">P</field>
+	<field id="P-config-data" type="A" length="240" />
+	<field id="GS1" type="KGS" length="1" />
+
+	<field id="device-id-V" desc="Statement Printer" type="A" length="1">V</field>
+	<field id="V-config-data" type="A" length="102" />
+	<field id="GS1" type="KGS" length="1" />
+
+	<field id="device-id-d" desc="Cash Handler 0" type="A" length="1">d</field>
+	<field id="d-config-data" type="A" length="12" />
+	<field id="GS1" type="KGS" length="1" />
+
+	<field id="device-id-e" desc="Cash Handler 1" type="A" length="1">e</field>
+	<field id="e-config-data" type="A" length="12" />
+	<!--  <field id="GS1"                type="KGS"   length="1" /> -->
+
+	<field id="FS1" type="KFS" length="1" />
+</schema>

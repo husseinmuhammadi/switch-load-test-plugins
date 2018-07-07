@@ -1,0 +1,5 @@
+<schema id="23">
+    <field id="fs-1" type="KFS" length="1" />
+	<field id="status-descriptor" type="AFS" length="10" />
+	<field id="kcv" type="AFS" length="10" />
+</schema>

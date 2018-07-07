@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema id="11">
+ <field id="fs-1"                        type="KFS" length="1"    />
+ <field id="fs-2"                        type="KFS" length="1"    />
+ <field id="top-of-receipt-flag"         type="A"   length="1"    />
+ <field id="message-coordination-number" type="AFS" length="1"    />
+ <field id="track2"                      type="AFS" length="39"   />
+ <field id="track3"                      type="AFS" length="106"  />
+ <field id="operation-code-data"         type="AFS" length="8"    />
+ <field id="amount-entered"              type="AFS" length="12"   />
+ <field id="pin-buffer-A"                type="AFS" length="32"   />
+ <field id="buffer-B"                    type="AFS" length="32"   />
+ <field id="buffer-C"                    type="AFS" length="32"   />
+ <field id="track1"                      type="AFS" length="79"   />
+ <field id="status-data-id"              type="AFS"   length="100"    />
+ <field id="last-status-data"            type="AFS" length="100"   />
+ <field id="extra-data1"            type="AFS" length="150"   />
+ <field id="extra-data2"            type="AFS" length="150"   />
+ <field id="extra-data3"            type="AFS" length="150"   />
+ <field id="extra-data4"            type="AFS" length="150"   />
+ <field id="extra-data5"            type="AFS" length="150"   />
+</schema>

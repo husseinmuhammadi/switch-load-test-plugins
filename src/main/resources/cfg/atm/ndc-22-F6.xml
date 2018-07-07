@@ -1,0 +1,5 @@
+<!-- Configuration ID -->
+<schema id="22-F6">
+	<field id="config-id" type="A" length="4"/>
+	<field id="FS1"                type="KFS"   length="1" />
+</schema>

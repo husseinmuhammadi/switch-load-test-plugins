@@ -1,0 +1,19 @@
+<!--For Configuration Information data-->
+<schema id="22-F1">
+	
+	 <field id="g2" desc="Configuration ID" type="A" length="4"/>
+ 	 <field id="FS1" type="KFS"   length="1" />
+ 	 
+ 	 <field id="hardware-fit" type="AFS" length="38" />
+ 	 
+ 	 <field id="hardware-config" type="AFS" length="76" />
+ 	 
+ 	 <field id="supplies-status" type="AFS" length="26" />
+ 	 
+ 	 <field id="sensor-status" type="AFS" length="12" />
+ 	 
+ 	 <field id="release-number" type="AFS" length="6" />
+ 	 
+ 	 <field id="software-id" type="AFS" length="9" />
+ 	 
+</schema>

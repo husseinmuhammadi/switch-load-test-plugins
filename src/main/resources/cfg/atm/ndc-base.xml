@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema>
+<!--<field id="header" type="A"   length="4" />-->
+  <field id="header"       type="STX"   length="1"    />
+  <!--<field id="header2"       type="SYN"   length="1"    />-->
+ <field id="message-class"       type="A"   length="1" key="true"   />
+</schema>
+

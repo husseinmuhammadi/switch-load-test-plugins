@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema id="12-A">
+ <!-- <field id="fs-1"                type="KFS" length="1"    />
+ <field id="e1"       type="A"   length="1"   key="true" /> -->
+ <field id="e2" type="AFS"   length="1"    />
+ <field id="e3" type="A"   length="1"    />
+</schema>

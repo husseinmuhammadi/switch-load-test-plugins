@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema>
+ <field id="header1"       type="STX"   length="1"    />
+ <field id="message-class"      type="K"     length="1">3</field>
+ <field id="FS1"                type="KFS"   length="0" />
+ <field id="FS2"                type="KFS"   length="0" />
+ <field id="FS3"                type="KFS"   length="0" />
+ <field id="message-subclass"   type="K"     length="1">4</field>
+ <!--<field id="load-identifier" type="K"   length="1">3</field> -->
+ <field id="key-change" type="KFS"   length="1">2</field>
+ <field id="key-data-size" type="K"   length="3">030</field>
+ <field id="data"               type="A"     length="48" />
+ <field id="header2"       type="ETX"   length="1"    />
+</schema>

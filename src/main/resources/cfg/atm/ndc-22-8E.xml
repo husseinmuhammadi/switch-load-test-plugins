@@ -1,0 +1,7 @@
+<!--  Device Fault 'E' Cash Handler -->
+<schema id="22-8E">
+    <field id="g2" type="AFS" length="17"/><!-- g2 -Transaction Status -->
+	<field id="g3" type="AFS" length="14"/><!-- g3 -Error Severity -->
+	<field id="g4" type="AFS" length="20"/><!--g4 -Diagnostic Status-->
+	<field id="g5" type="AFS" length="8"/><!--g5 -Supplies Status-->
+</schema>

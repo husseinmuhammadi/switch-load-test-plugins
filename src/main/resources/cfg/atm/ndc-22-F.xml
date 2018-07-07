@@ -1,0 +1,15 @@
+<schema id="22-F">
+ <!--field id="terminal-state"   type="A"   length="1" key="true" /-->
+ <!-- <field id="fs-1" type="KFS" length="1" />
+ <field id="g1" type="A" length="1"/>
+ <field id="g2" type="A" length="4"/>
+	<field id="g3" type="A" length="7"/>
+	<field id="g4" type="A" length="20"/>
+	<field id="g5" type="A" length="20"/>
+	<field id="g6" type="A" length="20"/>
+	<field id="g7" type="A" length="20"/>
+	<field id="g8" type="A" length="5"/>
+	<field id="g9" type="A" length="5"/>
+	<field id="g11" type="AFS" length="5"/>
+ <field id="MAC-Data" type="A" length="8"/> -->
+</schema>
