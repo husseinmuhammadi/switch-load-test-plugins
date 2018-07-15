@@ -1,7 +1,6 @@
 package com.en.pinhsm;
 
-import java.io.File;
-import java.io.FileInputStream;
+import java.io.InputStream;
 import java.util.Properties;
 
 public class ISO8583TesterUtil {
@@ -13,7 +12,9 @@ public class ISO8583TesterUtil {
     private ISO8583TesterUtil() {
         try {
             properties = new Properties();
-            properties.load(new FileInputStream(new File(ISO8583TesterUtil.class.getClassLoader().getResource("./keys.properties").toURI())));
+
+            InputStream in = this.getClass().getClassLoader().getResourceAsStream("keys.properties");
+            properties.load(in);
         } catch (Exception e) {
             e.printStackTrace();
         }

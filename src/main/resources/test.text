@@ -1,0 +1,1 @@
+JVM_ARGS="-Xms2024m -Xmx2024m -agentlib:jdwp=transport=dt_socket,server=y,address=8000"

@@ -367,7 +367,8 @@ public class AtmPackager implements Loggeable, Cloneable {
                 schema = (Element) sp.rdp(uri);
                 if (schema == null) {
                     SAXBuilder builder = new SAXBuilder();
-                    schema = builder.build(AtmPackager.class.getClassLoader().getResource(uri)).getRootElement();
+                    InputStream in = this.getClass().getClassLoader().getResourceAsStream(uri);
+                    schema = builder.build(in).getRootElement();
                 }
                 sp.out(uri, schema);
             }
