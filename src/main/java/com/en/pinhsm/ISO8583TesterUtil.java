@@ -1,11 +1,16 @@
 package com.en.pinhsm;
 
+import org.apache.jmeter.threads.JMeterContextService;
+import org.apache.jmeter.threads.JMeterVariables;
+
 import java.io.InputStream;
 import java.util.Properties;
 
 public class ISO8583TesterUtil {
 
     private Properties properties = null;
+
+    private JMeterVariables variables = JMeterContextService.getContext().getVariables();
 
     private static ISO8583TesterUtil instance = new ISO8583TesterUtil();
 
@@ -51,18 +56,18 @@ public class ISO8583TesterUtil {
     }
 
     public String getTMK1() {
-        return getProperty("TMK1");
+        return variables.get("TMK1");
     }
 
     public String getTMK2() {
-        return getProperty("TMK2");
+        return variables.get("TMK2");
     }
 
     public String getTMK3() {
-        return getProperty("TMK3");
+        return variables.get("TMK3");
     }
 
     public String getxTPK() {
-        return getProperty("XTPK");
+        return variables.get("XTPK");
     }
 }

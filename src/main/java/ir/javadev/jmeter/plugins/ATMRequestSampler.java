@@ -16,7 +16,7 @@ public class ATMRequestSampler extends AbstractSampler {
         try {
             System.out.println("#############33");
             System.out.println(System.getProperty("user.dir"));
-            startup.start(variables.get("atm_key"), variables.get("atm_no"), variables.get("track2"), variables.get("card_pin"));
+            startup.start(variables.get("luno"), variables.get("track2"), variables.get("card_pin"));
             sampleResult.setSuccessful(true);
         } catch (Exception e) {
             sampleResult.setSuccessful(true);

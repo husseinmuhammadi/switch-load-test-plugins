@@ -16,7 +16,7 @@ public class TestPin {
 	     PinUtil pu=new PinUtil();
 	     for(int x=0;x<9999;x++){
 	    	 pin=ISOUtil.zeropad(""+x, 4);
-	     String pb=pu.createPinBlock(pan, pin); 
+	     String pb=pu.createPinBlock(pan, pin);
          if(pb.equals(ref)){
 	       System.out.println(x+":"+pb);
          }else{

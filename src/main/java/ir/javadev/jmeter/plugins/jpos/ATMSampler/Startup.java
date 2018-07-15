@@ -25,7 +25,7 @@ public class Startup {
         }
     }
 
-    public void start(String atmKey, String atmNo, String track2, String cardPin) throws Exception {
+    public void start(String luno, String track2, String cardPin) throws Exception {
 
 //        Q2.main(args);
         MUX mux = QMUX.getMUX("atm-mux");
@@ -45,6 +45,7 @@ public class Startup {
         AtmNdc ndcMsgReq = new AtmNdc(atmPack);
         ndcMsgReq.unpack(line.getBytes());
 
+        atmPack.set("luno", luno);
         atmPack.set("track2", track2);
         String track2Data = PinUtil.getTrack2DataWithoutSentimental(track2);
         String cardNo = track2Data.substring(0, track2Data.indexOf("="));
@@ -59,7 +60,7 @@ public class Startup {
             System.out.println("Printer Data = " + atmpackRes.get("printer-data", "000"));
         }
 
-        stop();
+        // stop();
 
     }
 }

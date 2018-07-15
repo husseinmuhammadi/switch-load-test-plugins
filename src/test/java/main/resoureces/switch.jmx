@@ -18,7 +18,7 @@
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <stringProp name="LoopController.loops">1</stringProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.num_threads">80</stringProp>
         <stringProp name="ThreadGroup.ramp_time">1</stringProp>
         <boolProp name="ThreadGroup.scheduler">false</boolProp>
         <stringProp name="ThreadGroup.duration"></stringProp>
@@ -28,17 +28,17 @@
         <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="ATM Informations" enabled="true">
           <stringProp name="delimiter">,</stringProp>
           <stringProp name="fileEncoding">UTF-8</stringProp>
-          <stringProp name="filename">./atm-information.csv</stringProp>
+          <stringProp name="filename">.\atm-information.csv</stringProp>
           <boolProp name="ignoreFirstLine">false</boolProp>
           <boolProp name="quotedData">false</boolProp>
           <boolProp name="recycle">true</boolProp>
           <stringProp name="shareMode">shareMode.all</stringProp>
           <boolProp name="stopThread">false</boolProp>
-          <stringProp name="variableNames">atm_key,atm_no</stringProp>
+          <stringProp name="variableNames">luno,TMK1,TMK2,TMK3,XTPK</stringProp>
         </CSVDataSet>
         <hashTree/>
         <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Card Informations" enabled="true">
-          <stringProp name="filename">./card-information.csv</stringProp>
+          <stringProp name="filename">.\card-information.csv</stringProp>
           <stringProp name="fileEncoding">UTF-8</stringProp>
           <stringProp name="variableNames">track2,card_pin</stringProp>
           <boolProp name="ignoreFirstLine">false</boolProp>
