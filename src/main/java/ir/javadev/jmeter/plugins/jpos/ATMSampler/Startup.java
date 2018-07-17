@@ -22,14 +22,18 @@ public class Startup {
     static {
         try {
             System.out.println("Static$$$$$$$$$$");
-            Thread.sleep(5000);
             Q2.main(null);
+            Thread.sleep(5000);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public ATMSamplerResult start(String luno, String track2, String cardPin) throws Exception {
+
+        System.out.println("Luno: " + luno);
+        System.out.println("track2: " + track2);
+        System.out.println("cardPin: " + cardPin);
 
         ATMSamplerResult atmSamplerResult = new ATMSamplerResult();
         atmSamplerResult.setLuno(luno);
@@ -62,13 +66,18 @@ public class Startup {
         String pinblock = pinUtil.createAtmPinBlock(cardNo, cardPin);
         atmPack.set("pin-buffer-A", pinblock);
 
+        AtmNdc ndcMsgRes = null;
         atmSamplerResult.sampleStart();
-        AtmNdc ndcMsgRes = (AtmNdc) mux.request(ndcMsgReq, timeout);
-        atmSamplerResult.sampleEnd();
-
-        if (ndcMsgRes != null) {
-            AtmPackager atmpackRes = ndcMsgRes.getFSDMsg();
-            System.out.println("Printer Data = " + atmpackRes.get("printer-data", "000"));
+        try {
+            ndcMsgRes = (AtmNdc) mux.request(ndcMsgReq, timeout);
+            atmSamplerResult.sampleEnd();
+            if (ndcMsgRes != null) {
+                AtmPackager atmpackRes = ndcMsgRes.getFSDMsg();
+                System.out.println("Printer Data = " + atmpackRes.get("printer-data", "000"));
+            }
+        } catch (RuntimeException e) {
+            atmSamplerResult.setSuccessful(false);
+            e.printStackTrace();
         }
 
         return atmSamplerResult;
