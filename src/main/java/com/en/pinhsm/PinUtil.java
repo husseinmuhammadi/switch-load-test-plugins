@@ -1,5 +1,7 @@
 package com.en.pinhsm;
 
+import org.apache.jmeter.threads.JMeterContextService;
+import org.apache.jmeter.threads.JMeterVariables;
 import org.jpos.iso.ISOUtil;
 import org.jpos.security.EncryptedPIN;
 
@@ -7,6 +9,8 @@ import com.en.pinhsm.CryptoUtil;
 import com.en.pinhsm.PinHandler;
 
 public class PinUtil {
+
+	private JMeterVariables variables = JMeterContextService.getContext().getVariables();
 
 	public String createPinBlock(String span, String pin) throws Exception {
 		String pan = EncryptedPIN.extractAccountNumberPart(span);
@@ -60,21 +64,21 @@ public class PinUtil {
 
 	public String createAtmPinBlock(String span, String pin) throws Exception {
 		String pan = EncryptedPIN.extractAccountNumberPart(span);
-		if (ISO8583TesterUtil.getInstance().getTMK1().length() == 32) {
-			byte part1[] = ISOUtil.hex2byte(ISO8583TesterUtil.getInstance().getTMK1());
-			byte part2[] = ISOUtil.hex2byte(ISO8583TesterUtil.getInstance().getTMK2());
-			byte part3[] = ISOUtil.hex2byte(ISO8583TesterUtil.getInstance().getTMK3());
+		if (variables.get("TMK1").length() == 32) {
+			byte part1[] = ISOUtil.hex2byte(variables.get("TMK1"));
+			byte part2[] = ISOUtil.hex2byte(variables.get("TMK2"));
+			byte part3[] = ISOUtil.hex2byte(variables.get("TMK3"));
 			byte key[] = ArrayUtil.xor(part1, part2, part3);
-			byte zpk[] = CryptoUtil.desede(ISOUtil.hex2byte(ISO8583TesterUtil.getInstance().getxTPK()), key, CryptoUtil.DECRYPT_MODE);
+			byte zpk[] = CryptoUtil.desede(ISOUtil.hex2byte(variables.get("XTPK")), key, CryptoUtil.DECRYPT_MODE);
 			PinHandler ph = new PinHandler(ISOUtil.hexString(zpk));
 			byte[] pb = ph.getEncryptedPin_DKE(pin, pan);
 			return hextoGraphics(ISOUtil.hexString(pb));
 		} else {
-			byte part1[] = ISOUtil.hex2byte(ISO8583TesterUtil.getInstance().getTMK1());
-			byte part2[] = ISOUtil.hex2byte(ISO8583TesterUtil.getInstance().getTMK2());
-			byte part3[] = ISOUtil.hex2byte(ISO8583TesterUtil.getInstance().getTMK3());
+			byte part1[] = ISOUtil.hex2byte(variables.get("TMK1"));
+			byte part2[] = ISOUtil.hex2byte(variables.get("TMK2"));
+			byte part3[] = ISOUtil.hex2byte(variables.get("TMK3"));
 			byte key[] = ArrayUtil.xor(part1, part2, part3);
-			byte zpk[] = CryptoUtil.des(ISOUtil.hex2byte(ISO8583TesterUtil.getInstance().getxTPK()), key, CryptoUtil.DECRYPT_MODE);
+			byte zpk[] = CryptoUtil.des(ISOUtil.hex2byte(variables.get("XTPK")), key, CryptoUtil.DECRYPT_MODE);
 			PinHandler ph = new PinHandler(ISOUtil.hexString(zpk));
 			byte[] pb = ph.getEncryptedPin(pin, pan);
 			return hextoGraphics(ISOUtil.hexString(pb));
