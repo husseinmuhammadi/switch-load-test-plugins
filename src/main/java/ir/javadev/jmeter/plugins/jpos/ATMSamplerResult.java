@@ -7,6 +7,7 @@ public class ATMSamplerResult extends SampleResult {
     private String luno;
     private String track2;
     private String cardPin;
+    private String errorMessage;
 
     @Override
     public String getSamplerData() {
@@ -15,7 +16,7 @@ public class ATMSamplerResult extends SampleResult {
 
     @Override
     public String getRequestHeaders() {
-        return "Luno: " + luno + "\nTrack2: " + track2 + "\nCard Pin: " + cardPin;
+        return "Luno: " + luno + "\nTrack2: " + track2 + "\nCard Pin: " + cardPin + (errorMessage != null ? "\nError Msg: " + errorMessage : "");
     }
 
     public String getLuno() {
@@ -40,5 +41,13 @@ public class ATMSamplerResult extends SampleResult {
 
     public void setCardPin(String cardPin) {
         this.cardPin = cardPin;
+    }
+
+    public String getErrorMessage() {
+        return errorMessage;
+    }
+
+    public void setErrorMessage(String errorMessage) {
+        this.errorMessage = errorMessage;
     }
 }
