@@ -21,7 +21,6 @@ public class Startup {
 
     static {
         try {
-            System.out.println("Static$$$$$$$$$$");
             Q2.main(null);
             Thread.sleep(5000);
         } catch (Exception e) {
