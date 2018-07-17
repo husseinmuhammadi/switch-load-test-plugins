@@ -54,20 +54,4 @@ public class ISO8583TesterUtil {
             return null;
         return properties.getProperty(key);
     }
-
-    public String getTMK1() {
-        return variables.get("TMK1");
-    }
-
-    public String getTMK2() {
-        return variables.get("TMK2");
-    }
-
-    public String getTMK3() {
-        return variables.get("TMK3");
-    }
-
-    public String getxTPK() {
-        return variables.get("XTPK");
-    }
 }
