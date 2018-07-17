@@ -30,10 +30,9 @@ public class Startup {
     }
 
     public ATMSamplerResult start(String luno, String track2, String cardPin) throws Exception {
-
-        System.out.println("Luno: " + luno);
-        System.out.println("track2: " + track2);
-        System.out.println("cardPin: " + cardPin);
+        System.out.println("--------------Luno: " + luno);
+        System.out.println("--------------track2: " + track2);
+        System.out.println("--------------cardPin: " + cardPin);
 
         ATMSamplerResult atmSamplerResult = new ATMSamplerResult();
         atmSamplerResult.setLuno(luno);
@@ -71,6 +70,7 @@ public class Startup {
         try {
             ndcMsgRes = (AtmNdc) mux.request(ndcMsgReq, timeout);
             atmSamplerResult.sampleEnd();
+            atmSamplerResult.setSuccessful(true);
             if (ndcMsgRes != null) {
                 AtmPackager atmpackRes = ndcMsgRes.getFSDMsg();
                 System.out.println("Printer Data = " + atmpackRes.get("printer-data", "000"));
