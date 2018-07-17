@@ -30,16 +30,11 @@ public class Startup {
     }
 
     public ATMSamplerResult start(String luno, String track2, String cardPin) throws Exception {
-        System.out.println("--------------Luno: " + luno);
-        System.out.println("--------------track2: " + track2);
-        System.out.println("--------------cardPin: " + cardPin);
-
         ATMSamplerResult atmSamplerResult = new ATMSamplerResult();
         atmSamplerResult.setLuno(luno);
         atmSamplerResult.setTrack2(track2);
         atmSamplerResult.setCardPin(cardPin);
 
-//        Q2.main(args);
         MUX mux = QMUX.getMUX("atm-mux");
         if (mux.isConnected())
             System.out.println("mux is connected");
@@ -65,25 +60,26 @@ public class Startup {
         String pinblock = pinUtil.createAtmPinBlock(cardNo, cardPin);
         atmPack.set("pin-buffer-A", pinblock);
 
-        atmSamplerResult.sampleStart();
         try {
+            atmSamplerResult.sampleStart();
             AtmNdc ndcMsgRes = (AtmNdc) mux.request(ndcMsgReq, timeout);
             atmSamplerResult.sampleEnd();
 
             if (ndcMsgRes != null) {
-                atmSamplerResult.setResponseData(ndcMsgRes.pack());
                 atmSamplerResult.setSuccessful(true);
-                AtmPackager atmpackRes = ndcMsgRes.getFSDMsg();
-                System.out.println("Printer Data = " + atmpackRes.get("printer-data", "000"));
+                String result = ndcMsgRes.getFSDMsg().get("printer-data", "000");
+                atmSamplerResult.setResponseData(result);
+                atmSamplerResult.setResponseMessage("Hey");
+                System.out.println("Printer Data = " + result);
             } else {
                 atmSamplerResult.setSuccessful(false);
             }
         } catch (RuntimeException e) {
             atmSamplerResult.setSuccessful(false);
+            atmSamplerResult.setResponseMessage(e.getMessage());
             e.printStackTrace();
         }
 
         return atmSamplerResult;
-
     }
 }

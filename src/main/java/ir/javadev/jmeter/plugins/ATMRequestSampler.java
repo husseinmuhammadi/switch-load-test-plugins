@@ -10,14 +10,16 @@ import org.apache.jmeter.threads.JMeterContextService;
 import org.apache.jmeter.threads.JMeterVariables;
 
 public class ATMRequestSampler extends AbstractSampler {
+
+    private static Startup startup = new Startup();
+
     public SampleResult sample(Entry entry) {
         JMeterVariables variables = JMeterContextService.getContext().getVariables();
         ATMSamplerResult atmSamplerResult = new ATMSamplerResult();
         setProperty(TestElement.NAME, "ATM Test");
         atmSamplerResult.setSampleLabel(getName());
-        Startup startup = new Startup();
+
         try {
-            System.out.println("#############33");
             atmSamplerResult = startup.start(variables.get("luno"), variables.get("track2"), variables.get("card_pin"));
         } catch (Throwable e) {
             atmSamplerResult.setSuccessful(false);
