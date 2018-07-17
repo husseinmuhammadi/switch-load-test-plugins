@@ -11,12 +11,12 @@ public class ATMSamplerResult extends SampleResult {
 
     @Override
     public String getSamplerData() {
-        return super.getSamplerData();
-    }
-
-    @Override
-    public String getRequestHeaders() {
-        return "Luno: " + luno + "\nTrack2: " + track2 + "\nCard Pin: " + cardPin + (errorMessage != null ? "\nError Msg: " + errorMessage : "");
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("Luno: ").append(luno).append("\nTrack2: ").append(track2).append("\nCard Pin: ").append(cardPin).append((errorMessage != null ? "\nError Msg: " + errorMessage : ""));
+        if (super.getSamplerData() != null) {
+            stringBuilder.append(super.getSamplerData());
+        }
+        return stringBuilder.toString();
     }
 
     public String getLuno() {
