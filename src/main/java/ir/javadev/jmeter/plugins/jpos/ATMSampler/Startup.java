@@ -3,11 +3,14 @@ package ir.javadev.jmeter.plugins.jpos.ATMSampler;
 import com.en.listener.AtmNdc;
 import com.en.listener.AtmPackager;
 import com.en.pinhsm.PinUtil;
+import ir.javadev.jmeter.plugins.jpos.ATMSamplerResult;
 import org.jpos.iso.MUX;
 import org.jpos.q2.Q2;
 import org.jpos.q2.iso.QMUX;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 public class Startup {
 
@@ -16,16 +19,22 @@ public class Startup {
         Q2.getQ2().stop();
     }
 
-    static{
+    static {
         try {
             System.out.println("Static$$$$$$$$$$");
+            Thread.sleep(5000);
             Q2.main(null);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void start(String luno, String track2, String cardPin) throws Exception {
+    public ATMSamplerResult start(String luno, String track2, String cardPin) throws Exception {
+
+        ATMSamplerResult atmSamplerResult = new ATMSamplerResult();
+        atmSamplerResult.setLuno(luno);
+        atmSamplerResult.setTrack2(track2);
+        atmSamplerResult.setCardPin(cardPin);
 
 //        Q2.main(args);
         MUX mux = QMUX.getMUX("atm-mux");
@@ -53,14 +62,16 @@ public class Startup {
         String pinblock = pinUtil.createAtmPinBlock(cardNo, cardPin);
         atmPack.set("pin-buffer-A", pinblock);
 
+        atmSamplerResult.sampleStart();
         AtmNdc ndcMsgRes = (AtmNdc) mux.request(ndcMsgReq, timeout);
+        atmSamplerResult.sampleEnd();
 
         if (ndcMsgRes != null) {
             AtmPackager atmpackRes = ndcMsgRes.getFSDMsg();
             System.out.println("Printer Data = " + atmpackRes.get("printer-data", "000"));
         }
 
-        // stop();
+        return atmSamplerResult;
 
     }
 }
