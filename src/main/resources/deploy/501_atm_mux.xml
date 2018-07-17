@@ -2,5 +2,5 @@
     <in>atm-receive</in>
     <out>atm-send</out>
     <unhandled>atm-unhandled</unhandled>
-    <key>message-coordination-number</key>
+    <key>luno message-coordination-number</key>
 </mux>
