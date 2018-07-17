@@ -67,12 +67,16 @@ public class Startup {
 
         atmSamplerResult.sampleStart();
         try {
-            AtmNdc ndcMsgRes= (AtmNdc) mux.request(ndcMsgReq, timeout);
+            AtmNdc ndcMsgRes = (AtmNdc) mux.request(ndcMsgReq, timeout);
             atmSamplerResult.sampleEnd();
-            atmSamplerResult.setSuccessful(true);
+
             if (ndcMsgRes != null) {
+                atmSamplerResult.setResponseData(ndcMsgRes.pack());
+                atmSamplerResult.setSuccessful(true);
                 AtmPackager atmpackRes = ndcMsgRes.getFSDMsg();
                 System.out.println("Printer Data = " + atmpackRes.get("printer-data", "000"));
+            } else {
+                atmSamplerResult.setSuccessful(false);
             }
         } catch (RuntimeException e) {
             atmSamplerResult.setSuccessful(false);
