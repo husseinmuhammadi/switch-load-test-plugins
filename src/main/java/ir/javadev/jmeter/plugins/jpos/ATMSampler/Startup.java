@@ -65,10 +65,9 @@ public class Startup {
         String pinblock = pinUtil.createAtmPinBlock(cardNo, cardPin);
         atmPack.set("pin-buffer-A", pinblock);
 
-        AtmNdc ndcMsgRes = null;
         atmSamplerResult.sampleStart();
         try {
-            ndcMsgRes = (AtmNdc) mux.request(ndcMsgReq, timeout);
+            AtmNdc ndcMsgRes= (AtmNdc) mux.request(ndcMsgReq, timeout);
             atmSamplerResult.sampleEnd();
             atmSamplerResult.setSuccessful(true);
             if (ndcMsgRes != null) {
