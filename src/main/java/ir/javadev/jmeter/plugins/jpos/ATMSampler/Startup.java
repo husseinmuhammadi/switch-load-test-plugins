@@ -78,8 +78,9 @@ public class Startup {
                 atmSamplerResult.setResponseData(ndcMsgRes.pack());
                 System.out.println("Printer Data = " + result);
             } else {
-                System.out.println("++NULL++++NULL++++NULL++++NULL++++NULL++++NULL++++NULL++++NULL++++NULL++++NULL++");
                 atmSamplerResult.setSuccessful(false);
+                atmSamplerResult.setErrorMessage("NDC message is null");
+                System.out.println("++NULL++++NULL++++NULL++++NULL++++NULL++++NULL++++NULL++++NULL++++NULL++++NULL++");
                 System.out.println();
                 System.out.println();
                 System.out.println();
@@ -93,7 +94,7 @@ public class Startup {
             }
         } catch (RuntimeException e) {
             atmSamplerResult.setSuccessful(false);
-            atmSamplerResult.setResponseMessage(e.getMessage());
+            atmSamplerResult.setErrorMessage(e.getMessage());
             e.printStackTrace();
         }
 
