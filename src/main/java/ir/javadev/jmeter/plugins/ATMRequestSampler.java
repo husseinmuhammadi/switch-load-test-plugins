@@ -16,8 +16,6 @@ public class ATMRequestSampler extends AbstractSampler {
     public SampleResult sample(Entry entry) {
         JMeterVariables variables = JMeterContextService.getContext().getVariables();
         ATMSamplerResult atmSamplerResult = new ATMSamplerResult();
-        setProperty(TestElement.NAME, "ATM Test");
-        atmSamplerResult.setSampleLabel(getName());
 
         try {
             atmSamplerResult = startup.start(variables.get("luno"), variables.get("track2"), variables.get("card_pin"));

@@ -11,12 +11,14 @@ import org.jpos.q2.iso.QMUX;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.Calendar;
+import java.util.Date;
 
 public class Startup {
 
     public void stop() {
         System.out.println("Stop q2");
-        Q2.getQ2().stop();
+        // Q2.getQ2().stop();
     }
 
     static {
@@ -40,7 +42,7 @@ public class Startup {
         else
             System.out.println("mux is not connected");
 
-        long timeout = 10000;
+        long timeout = 30000;
 
         InputStream in = this.getClass().getClassLoader().getResourceAsStream("cash-withdrawal.txt");
         BufferedReader reader = new BufferedReader(new InputStreamReader(in));
@@ -60,18 +62,34 @@ public class Startup {
         atmPack.set("pin-buffer-A", pinblock);
 
         try {
+            Date startTime = new Date();
+            atmSamplerResult.setSampleLabel(luno);
             atmSamplerResult.sampleStart();
             AtmNdc ndcMsgRes = (AtmNdc) mux.request(ndcMsgReq, timeout);
             atmSamplerResult.sampleEnd();
 
+            long diff = startTime.getTime() - new Date().getTime();
+            System.out.println("---------------------- DIFF: " + diff);
+
+
             if (ndcMsgRes != null) {
                 atmSamplerResult.setSuccessful(true);
                 String result = ndcMsgRes.getFSDMsg().get("printer-data", "000");
-                atmSamplerResult.setResponseData(result);
-                atmSamplerResult.setResponseMessage("Hey");
+                atmSamplerResult.setResponseData(ndcMsgRes.pack());
                 System.out.println("Printer Data = " + result);
             } else {
+                System.out.println("++NULL++++NULL++++NULL++++NULL++++NULL++++NULL++++NULL++++NULL++++NULL++++NULL++");
                 atmSamplerResult.setSuccessful(false);
+                System.out.println();
+                System.out.println();
+                System.out.println();
+                System.out.println();
+                System.out.println();
+                System.out.println();
+                System.out.println();
+                System.out.println();
+                System.out.println();
+                System.out.println();
             }
         } catch (RuntimeException e) {
             atmSamplerResult.setSuccessful(false);

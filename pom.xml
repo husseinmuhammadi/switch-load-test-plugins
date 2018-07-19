@@ -51,11 +51,10 @@
             <scope>provided</scope>
         </dependency>
 
-
         <dependency>
             <groupId>org.jpos</groupId>
             <artifactId>jpos</artifactId>
-            <version>2.1.1</version>
+            <version>1.9.0</version>
         </dependency>
 
         <dependency>
