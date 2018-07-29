@@ -1,0 +1,6 @@
+<mux class="com.en.mux.ATMMux" logger="Q2" name="atm-mux-1">
+    <in>atm-receive-1</in>
+    <out>atm-send-1</out>
+    <unhandled>atm-unhandled</unhandled>
+    <key>luno message-coordination-number</key>
+</mux>

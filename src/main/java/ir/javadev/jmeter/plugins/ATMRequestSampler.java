@@ -18,8 +18,16 @@ public class ATMRequestSampler extends AbstractSampler {
         ATMSamplerResult atmSamplerResult = new ATMSamplerResult();
         atmSamplerResult.setSampleLabel("NullResult");
 
+        String luno = variables.get("luno");
+        String track2 = variables.get("track2");
+        String cardPin = variables.get("card_pin");
+
+        atmSamplerResult.setLuno(luno);
+        atmSamplerResult.setTrack2(track2);
+        atmSamplerResult.setCardPin(cardPin);
+
         try {
-            atmSamplerResult = startup.start(variables.get("luno"), variables.get("track2"), variables.get("card_pin"));
+            atmSamplerResult = startup.start(luno, track2, cardPin);
         } catch (Throwable e) {
             atmSamplerResult.setSuccessful(false);
             atmSamplerResult.setErrorMessage(e.getMessage());

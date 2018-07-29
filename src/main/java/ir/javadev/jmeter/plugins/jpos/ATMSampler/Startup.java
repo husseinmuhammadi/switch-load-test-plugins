@@ -36,7 +36,10 @@ public class Startup {
         atmSamplerResult.setTrack2(track2);
         atmSamplerResult.setCardPin(cardPin);
 
+        System.out.println("\n\n\n\n");
+
         MUX mux = QMUX.getMUX("atm-mux");
+
         if (mux.isConnected())
             System.out.println("mux is connected");
         else
@@ -62,15 +65,10 @@ public class Startup {
         atmPack.set("pin-buffer-A", pinblock);
 
         try {
-            Date startTime = new Date();
             atmSamplerResult.setSampleLabel(luno);
             atmSamplerResult.sampleStart();
             AtmNdc ndcMsgRes = (AtmNdc) mux.request(ndcMsgReq, timeout);
             atmSamplerResult.sampleEnd();
-
-            long diff = startTime.getTime() - new Date().getTime();
-            System.out.println("---------------------- DIFF: " + diff);
-
 
             if (ndcMsgRes != null) {
                 atmSamplerResult.setSuccessful(true);
@@ -81,16 +79,6 @@ public class Startup {
                 atmSamplerResult.setSuccessful(false);
                 atmSamplerResult.setErrorMessage("NDC message is null");
                 System.out.println("++NULL++++NULL++++NULL++++NULL++++NULL++++NULL++++NULL++++NULL++++NULL++++NULL++");
-                System.out.println();
-                System.out.println();
-                System.out.println();
-                System.out.println();
-                System.out.println();
-                System.out.println();
-                System.out.println();
-                System.out.println();
-                System.out.println();
-                System.out.println();
             }
         } catch (RuntimeException e) {
             atmSamplerResult.setSuccessful(false);

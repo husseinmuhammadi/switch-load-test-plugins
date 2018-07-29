@@ -1,0 +1,4 @@
+<mux class="org.jpos.q2.iso.MUXPool" logger="Q2" name="atm-mux">
+    <muxes>atm-mux-1 atm-mux-2 atm-mux-3</muxes>
+    <strategy>round-robin</strategy>
+</mux>
